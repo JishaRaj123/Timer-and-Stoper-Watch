@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer and Stoper</title>
+    <style>
+        body{
+            background-color: rgb(13, 14, 36);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+
+              position: relative; /* ADD THIS */
+              overflow: hidden;    /* Prevent scroll due to falling balls */
+        }
+        .Watch{
+            text-align: center;
+            background-color: rgb(66, 62, 148);
+            padding: 130px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(66, 10, 234, 0.2);
+            width: 500px;   
+            
+            position: relative;
+            z-index: 10;
+        }
+
+        a.stoper{
+            display: inline-block;
+            text-decoration: none;
+            color:rgb(197, 184, 225);
+            background-color: rgb(16, 18, 43);
+            padding: 45px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 25px;
+            margin-top: 35px;
+            margin-bottom: 35px;
+            margin-right: 90px;
+            transition: 0.3s;
+            box-shadow: 0 6px 20px rgba(66, 10, 234, 0.2);
+            animation: float 3s ease-in-out infinite;
+            
+        }
+        a.stoper:hover{
+            background-color: rgb(33, 38, 87);
+        }
+        a.timer{
+            display: inline-block;
+            text-decoration: none;
+            color: rgb(197, 184, 225);
+            background-color:  rgb(16, 18, 43);
+            padding: 45px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 25px;
+            transition: 0.3s;
+            box-shadow: 0 6px 20px rgba(66, 10, 234, 0.2);
+            animation: float 3s ease-in-out infinite;
+           
+        }
+        a.timer:hover{
+             background-color:  rgb(33, 38, 87);
+        }
+
+    /* @keyframes fall {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+} */
+
+
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 0; /* Behind everything */
+            pointer-events: none; /* Don't interfere with clicks */
+        }
+
+        .ball {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: fall linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -50px;
+                opacity: 1;
+                transform: translateY(0px);
+            }
+            100% {
+                top: 100vh;
+                opacity: 0;
+                transform: translateY(100vh);
+            }
+        }
+
+     
+    </style>
+</head>
+
+
+
+<body>
+    <div class="background-animation"></div>
+
+    <div class="Watch">
+   
+    <a href="stoper.html" class="stoper">Stop Watch</a>
+    <a href="timer.html" class="timer">Timer Watch</a>
+    </div>
+    <script>
+        // --- Falling balls animation ---
+  function createBall() {
+    const ball = document.createElement("div");
+    ball.classList.add("ball");
+    const size = Math.random() * 20 + 10;
+    ball.style.width = `${size}px`;
+    ball.style.height = `${size}px`;
+    ball.style.left = `${Math.random() * 100}vw`;
+    ball.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+    ball.style.animationDuration = `${Math.random() * 5 + 5}s`;
+  document.querySelector('.background-animation').appendChild(ball);
+
+
+    setTimeout(() => {
+      ball.remove();
+    }, 10000); // Remove after 10s
+  }
+
+  setInterval(createBall, 300); // Create ball every 300ms
+    </script>
+</body>
+</html>
