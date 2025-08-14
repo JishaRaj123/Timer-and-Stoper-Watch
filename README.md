@@ -8,7 +8,6 @@ Features
 - **Stopwatch** – Start, pause, and reset functionality.
 - **Timer** – Set countdown time, start, pause, and reset.
 - **Falling Balls Background** – Added just for a fun and dynamic design.
-- **Responsive Design** – Works seamlessly on desktop and mobile.
 
 Tech Stack
 - **HTML5** – Structure
