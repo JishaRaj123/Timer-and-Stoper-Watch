@@ -16,5 +16,4 @@ Tech Stack
 - **JavaScript (ES6)** – Functionality
 
 Live Demo
-
-**[View Live App](https://jisharaj123.github.io/Timer-and-Stoper-Watch/)**
+https://jisharaj123.github.io/Timer-and-Stoper-Watch/
